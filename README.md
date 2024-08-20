@@ -7,6 +7,7 @@ The need for this example is because when I was searching for Cursor Pagination 
 ## TO DO
 
 * Re-read about traversing arrays or linked list to apply those algorithms in this example. The current version is base on them from memory not by comparing to them 1-1.
+* Add a note that you can encrypt the `_id` or similar to protect the data.
 
 ## Requeriments
 
