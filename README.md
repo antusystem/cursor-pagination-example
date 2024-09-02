@@ -23,6 +23,10 @@ The example will show the results from the query (`results`), the value of the n
 
 And that's it, straightforward the example for Cursor pagination.
 
+## Note
+
+You can see the file `guide.md` to read a step by step guide of how to understand the code
+
 ## Version
 
 V. 1.2.0
