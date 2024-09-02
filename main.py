@@ -1,4 +1,4 @@
-"""Codigo de ejemplo para implementar el Patron de empaginado del tipo Cursor (Cursor Paging/Pagination Pattern)."""
+"""Cursor Paging/Pagination Pattern Example."""
 from bson.objectid import ObjectId
 from datetime import datetime
 
@@ -126,7 +126,7 @@ class cursorPattern:
         return results, next_cursor, prev_cursor, at_end
 
     def _fetch_previous_page(
-        self, cursor: ObjectId | None, prev_at_start: bool, page_size: int | None = None, 
+        self, cursor: ObjectId | None, page_size: int | None = None, 
     ) -> tuple[list, ObjectId | None, ObjectId | None, bool]:
         """Retrieves the previous page of data based on the provided cursor.
 
@@ -191,12 +191,15 @@ class cursorPattern:
             results.reverse()
             # Indicate that there are not more previous pages available (initial page reached)
             prev_cursor = None
-            if prev_at_start:
-                # in case before was at the starting page
-                next_cursor = results[0]['_id']
-            else:
-                # in case before was not at the starting page
-                next_cursor = results[-1]['_id']
+            # if prev_at_start:
+            #     # in case before was at the starting page
+            #     logger.warning("Caso 1")
+            #     next_cursor = results[0]['_id']
+            # else:
+            #     # in case before was not at the starting page
+            #     logger.warning("Caso 2")
+            #     next_cursor = results[-1]['_id']
+            next_cursor = results[-1]['_id']
             # Indicate you have reached the start of the data
             at_start = True
         return results, next_cursor, prev_cursor, at_start
@@ -245,7 +248,8 @@ class cursorPattern:
                     # For this example, you must reset here the value, otherwise you lose the reference of the cursor
                     at_start = False
                 elif inn == "b" and stage in [0, 2]:
-                    results, next_cursor, prev_cursor, at_start = self._fetch_previous_page(prev_cursor, at_start, page_size)
+                    # results, next_cursor, prev_cursor, at_start = self._fetch_previous_page(prev_cursor, at_start, page_size)
+                    results, next_cursor, prev_cursor, at_start = self._fetch_previous_page(prev_cursor, page_size)
                     # For this example, you must reset here the value, otherwise you lose the reference of the cursor
                     at_end = False
                 elif inn == "c":
