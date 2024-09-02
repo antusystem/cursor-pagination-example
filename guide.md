@@ -281,7 +281,7 @@ We added validation to the users input to identify the *stage* where we are whil
 
 ***Note***: I was facing a bug at this point which I cannot reproduce right now, but it was causing problems when going backward and reaching the start, the cursor was pointing to the wrong place and when you wanted to go forward it skip 1 element. To solve it I added a validation in `fetch_previous_page` if a parameter called `prev_at_start` (which is the previous value of `at_start`) to assing `next_cursor` the value `results[0]['_id']` or, `results[-1]['_id']` in case the previous stage was not at the beginning of the data. This will be ommited from now on, but I think is worth the mention.
 
-Now that we can traverse the data from beginning to end and going forward or backward in it, we can create a class that have all this functions and call it to use the example. Also we must add the docstring so everything is documents correctly. The result of that are is this code:
+Now that we can traverse the data from beginning to end and going forward or backward in it, we can create a class that have all this functions and call it to use the example. Also we must add the docstring so everything is documents correctly. The result of that are in this code:
 
 ```python
 """Cursor Paging/Pagination Pattern Example."""
