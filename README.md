@@ -17,7 +17,7 @@ Don't forget to use `poetry install` to install the dependencies. Be aware of th
 
 ## How to use
 
-Before you start the example you must go to the file `main.py` an in there you must uncomment the second line in the `main` function: `my_cursor.add_data()`, this will write the example data. After that, you must comment that line again and uncomment the next one: `my_cursor.start_pagination()`. Now you can use `poetry shell` and `python main.py` (or `poetry run python main.py`).
+Before you start the example you must execute the file `add_data.py` to write the information on the database. To do this you can use `poetry shell` and `python add_data.py` (or `poetry run python add_data.py`). Afterwards you can execute `poetry shell` and `python main.py` (or `poetry run python main.py`) to run the example
 
 The example will show the results from the query (`results`), the value of the next cursor (`next_cursor`), the value of the previous cursor (`prev_cursor`), indicate you if it is at the start of the data (`at_start`), and indicate you if it is at the end of the data (`at_end`). Then, in case there is enough data (which is the case unless you alter the value of `page_size`) you will be prompted to move **forward** with `f` or **cancel** with `c`. If you send `f`, in the next page you will have the extra option of going **backward** with `b`.
 
@@ -25,4 +25,4 @@ And that's it, straightforward the example for Cursor pagination.
 
 ## Version
 
-V. 1.1.0
+V. 1.2.0
